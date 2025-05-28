@@ -1,0 +1,53 @@
+# config.yaml
+
+# Define objective: 'maximize' or 'minimize' a given metric
+
+objective:
+type: maximize     # Change to 'minimize' for cost-driven missions
+metric: coverage\_time  # Metric to optimize (e.g., coverage\_time, cost)
+
+# Global constraints for the mission
+
+constraints:
+max\_mass: 500       # \[kg] total mass limit
+max\_cost: 50        # \[\$M] total cost limit
+
+# Components and their available options
+
+components:
+payload:
+options:
+\- name: camera\_A
+mass: 50
+cost: 5
+coverage\_time: 2.5
+\- name: camera\_B
+mass: 75
+cost: 7
+coverage\_time: 3.0
+power\_system:
+options:
+\- name: solar\_panel\_small
+mass: 100
+cost: 2
+power\_output: 1.5
+\- name: solar\_panel\_large
+mass: 200
+cost: 4
+power\_output: 3.5
+comms:
+options:
+\- name: X\_band
+mass: 20
+cost: 1
+data\_rate: 100
+\- name: Ka\_band
+mass: 30
+cost: 2
+data\_rate: 200
+
+# Notes:
+
+# - To adapt for a new year, update 'objective', 'constraints', or add/remove 'components'.
+
+# - Ensure metric keys exist in each option entry (e.g., coverage\_time, mass, cost).
